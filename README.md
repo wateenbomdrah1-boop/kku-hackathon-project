@@ -2,7 +2,7 @@
 
 ## What it does
 
-Discover Your Future is a bilingual (English and Arabic) quiz that helps students explore the Vision 2030 sectors that match their interests. It asks ten scenario-based questions and shows an instant interest-distribution result with a leadership colour.
+Discover Your Future is a bilingual (English and Arabic) quiz that helps students explore the Vision 2030 sectors that match their interests. It asks ten scored scenario-based questions, then offers an optional creative leadership-colour bonus, and shows an instant interest-distribution result.
 
 ## Who it is for
 
