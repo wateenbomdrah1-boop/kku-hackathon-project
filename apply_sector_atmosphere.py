@@ -1,0 +1,25 @@
+from pathlib import Path
+
+path = Path('index.html')
+text = path.read_text(encoding='utf-8')
+
+old_css = '''#sector-reveal{position:fixed;z-index:1;inset:-15dvh 0 0;overflow:hidden;pointer-events:none;opacity:0;--reveal-sector:var(--vision-teal)}#sector-reveal::before{content:"";position:absolute;inset:auto -18% -38dvh;height:118dvh;background:radial-gradient(ellipse at 50% 86%,color-mix(in srgb,var(--reveal-sector),transparent 52%) 0%,color-mix(in srgb,var(--reveal-sector),transparent 80%) 38%,transparent 70%);filter:blur(14px);transform:translateY(66%);opacity:0}.sector-reveal-active{opacity:1}.sector-reveal-active::before{animation:sector-glow-rise 1.05s cubic-bezier(.18,.72,.24,1) forwards}@keyframes sector-glow-rise{0%{opacity:0;transform:translateY(70%)}22%{opacity:.66}70%{opacity:.25;transform:translateY(-13%)}100%{opacity:0;transform:translateY(-25%)}}'''
+new_css = '''#sector-reveal{position:fixed;z-index:1;inset:0;overflow:hidden;pointer-events:none;opacity:0;isolation:isolate;--reveal-sector:var(--vision-teal)}.wrap{z-index:2}#sector-reveal::before{content:"";position:absolute;inset:auto -28% -48dvh;height:156dvh;background:radial-gradient(ellipse 78% 54% at 50% 88%,color-mix(in srgb,var(--reveal-sector),transparent 14%) 0%,color-mix(in srgb,var(--reveal-sector),transparent 43%) 31%,color-mix(in srgb,var(--reveal-sector),transparent 73%) 57%,transparent 77%),linear-gradient(to top,color-mix(in srgb,var(--reveal-sector),transparent 81%),transparent 72%);filter:blur(20px) saturate(118%);transform:translate3d(0,54%,0);opacity:0;will-change:transform,opacity}.sector-reveal-active{opacity:1}.sector-reveal-active::before{animation:sector-atmosphere-rise 1.38s cubic-bezier(.16,.72,.22,1) forwards}@keyframes sector-atmosphere-rise{0%{opacity:0;transform:translate3d(0,54%,0)}18%{opacity:.84;transform:translate3d(0,37%,0)}45%{opacity:.74;transform:translate3d(0,6%,0)}72%{opacity:.31;transform:translate3d(0,-23%,0)}100%{opacity:0;transform:translate3d(0,-50%,0)}}'''
+if old_css not in text:
+    raise SystemExit('Existing sector reveal CSS not found.')
+text = text.replace(old_css, new_css, 1)
+
+old_reduced = '''@media(max-width:600px){.gender-card{min-height:158px}.gender-illustration{transform:scale(.9)}.colorchoice{grid-template-rows:108px auto;min-height:170px}.swatch{min-height:108px}}@media(prefers-reduced-motion:reduce){#sector-reveal{inset:0;background:radial-gradient(ellipse at 50% 100%,color-mix(in srgb,var(--reveal-sector),transparent 72%),transparent 62%);transition:opacity .01ms linear}.sector-reveal-active{opacity:.85}.sector-reveal-active::before{animation:none;opacity:0}.tap-ripple{width:40px;height:40px}.tap-ripple .press-wave{animation:none;opacity:.55;transform:scale(.8)}.tap-ripple .press-spark{display:none}.gender-card,.colorchoice{transition:none}}'''
+new_reduced = '''@media(max-width:600px){.gender-card{min-height:158px}.gender-illustration{transform:scale(.9)}.colorchoice{grid-template-rows:108px auto;min-height:170px}.swatch{min-height:108px}}@media(prefers-reduced-motion:reduce){#sector-reveal{background:radial-gradient(ellipse 85% 48% at 50% 100%,color-mix(in srgb,var(--reveal-sector),transparent 52%),transparent 74%);transition:opacity .01ms linear}.sector-reveal-active{opacity:.9}.sector-reveal-active::before{animation:none;opacity:.74;transform:translate3d(0,0,0)}.tap-ripple{width:40px;height:40px}.tap-ripple .press-wave{animation:none;opacity:.55;transform:scale(.8)}.tap-ripple .press-spark{display:none}.gender-card,.colorchoice{transition:none}}'''
+if old_reduced not in text:
+    raise SystemExit('Existing reduced-motion sector CSS not found.')
+text = text.replace(old_reduced, new_reduced, 1)
+
+old_js = '''let sectorRevealTimer=0;function showSectorReveal(sector){const overlay=$('sector-reveal'),reduced=window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches;clearTimeout(sectorRevealTimer);overlay.style.setProperty('--reveal-sector',sector);overlay.classList.remove('sector-reveal-active');void overlay.offsetWidth;overlay.classList.add('sector-reveal-active');sectorRevealTimer=setTimeout(()=>overlay.classList.remove('sector-reveal-active'),reduced?300:1120)}'''
+new_js = '''let sectorRevealTimer=0,sectorRevealSequence=0;function showSectorReveal(sector){const overlay=$('sector-reveal'),reduced=window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches,revealSector=String(sector||'').trim()||'var(--vision-teal)',sequence=++sectorRevealSequence;clearTimeout(sectorRevealTimer);overlay.style.setProperty('--reveal-sector',revealSector);overlay.classList.remove('sector-reveal-active');void overlay.offsetWidth;overlay.classList.add('sector-reveal-active');sectorRevealTimer=setTimeout(()=>{if(sequence===sectorRevealSequence)overlay.classList.remove('sector-reveal-active')},reduced?420:1450)}'''
+if old_js not in text:
+    raise SystemExit('Existing sector reveal JavaScript not found.')
+text = text.replace(old_js, new_js, 1)
+
+path.write_text(text, encoding='utf-8')
+print('Updated sector atmosphere effect.')
