@@ -2,7 +2,7 @@
 
 ## What it does
 
-Discover Your Future is a bilingual (English and Arabic) quiz that helps students explore the Vision 2030 sectors that match their interests. It asks ten scored scenario-based questions, then offers an optional creative leadership-colour bonus, and shows an instant interest-distribution result.
+It takes a student's quiz choices and gives their two best-matching Vision 2030 sectors.
 
 ## Who it is for
 
@@ -10,24 +10,26 @@ Students who want a playful starting point for exploring future study and career
 
 ## Needs
 
-A modern web browser. The page is standalone and does not need an internet connection, a server, or an account.
+Nothing but a modern web browser.
 
 ## How to run it
 
-1. Open `index.html` by double-clicking it.
-2. Enter a full name, a whole-number age from 18 to 120, and choose one of the required gender icons.
-3. Select **Start Quiz** to begin.
-4. Choose or skip the optional leadership-colour bonus.
-5. Select **View Your Sector Matches**, then reveal each dark card individually to see the top two sector matches.
-6. Use **Save My Result** to download a PNG result image of both final matches, or open **Sources** to review the official Saudi references behind the example jobs.
-7. Use the language button at the top to switch between English and Arabic.
+Start from a fresh download of this repository and extract it if necessary.
 
-The welcome details (name, age, and gender selection) stay only in the current browser session. Gender is never used for questions, scoring, job suggestions, results, or the downloaded image. Selecting **Take quiz again** clears them and returns to the welcome form. The leadership-colour choice is optional and creative only. Fine-pointer desktop users see a decorative Saudi-green cursor; touch and reduced-motion users retain non-blocking press feedback. The example-job links point to official Saudi sources; historical or expired announcements are clearly identified as examples rather than current vacancies.
+### Windows
+
+1. Open the downloaded project folder.
+2. Double-click `index.html`.
+
+### Mac
+
+1. Open the downloaded project folder in Finder.
+2. Double-click `index.html`.
+
+No command, server, account, or internet connection is needed.
 
 ## Try it with the sample data
 
-The quiz uses fictional built-in questions and scoring. It does not save participant entries or send them anywhere, so no separate sample-data loader is needed.
+Open `sample-data/quiz-example.txt`, then enter the made-up example details in the welcome form. Choose **Start Quiz**, select one answer per question, choose or skip the optional leadership-colour bonus, and select **View Your Sector Matches**. You should see two matching Vision 2030 sectors with example careers. The app does not retain the details after **Take quiz again**.
 
-Built with Claude Code during the KKU Claude Code hackathon
-
-Started on 2026-09-27
+## Built with Claude Code during the KKU Claude Code hackathon

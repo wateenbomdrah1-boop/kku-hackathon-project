@@ -1,0 +1,9 @@
+Made-up example input for Discover Your Future
+
+Name: Noor Example
+Age: 21
+Gender: Woman
+
+Choose any answer for each quiz question. The results are based on the selected answers, so different answers lead to different sector matches.
+
+Expected outcome: after completing the quiz and selecting “View Your Sector Matches,” the app shows two Vision 2030 sector cards and fictional example careers.
