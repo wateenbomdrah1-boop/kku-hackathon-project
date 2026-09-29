@@ -3,7 +3,8 @@ const vm = require('vm');
 
 const html = fs.readFileSync('index.html', 'utf8');
 for (const marker of [
-  'sector-atmosphere-rise',
+  'sector-vapor-rise',
+  'sector-vapor-bloom',
   'pointer-events:none',
   'card.style.getPropertyValue(\'--sector\')',
   'sectorRevealSequence',
@@ -52,5 +53,5 @@ if (overlay.style.value !== '#8555B8' || !classes.has('sector-reveal-active')) t
 context.showSectorReveal('#C68A25');
 if (overlay.style.value !== '#C68A25' || !classes.has('sector-reveal-active')) throw new Error('Second reveal did not replace the sector colour');
 timers.forEach(timer => timer());
-if (classes.has('sector-reveal-active')) throw new Error('Latest sector atmosphere did not clean up');
-console.log('Sector atmosphere behavior checks passed.');
+if (classes.has('sector-reveal-active')) throw new Error('Latest sector vapor overlay did not clean up');
+console.log('Sector vapor behavior checks passed.');
