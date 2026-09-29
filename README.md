@@ -18,8 +18,8 @@ A modern web browser. The page is standalone and does not need an internet conne
 2. Enter a full name and a whole-number age from 1 to 120.
 3. Select **Start Quiz** to begin.
 4. Choose or skip the optional leadership-colour bonus.
-5. Select **View Your Sector Matches** to reveal the top two sector cards.
-6. Use **Save My Result** to download a PNG result image, or open **Sources** to review the official Saudi references behind the example jobs.
+5. Select **View Your Sector Matches**, then reveal each dark card individually to see the top two sector matches.
+6. Use **Save My Result** to download a PNG result image of both final matches, or open **Sources** to review the official Saudi references behind the example jobs.
 7. Use the language button at the top to switch between English and Arabic.
 
 The welcome details stay only in the current browser session. Selecting **Take quiz again** clears them and returns to the welcome form. The example-job links point to official Saudi sources; historical or expired announcements are clearly identified as examples rather than current vacancies.
