@@ -15,7 +15,7 @@ A modern web browser. The page is standalone and does not need an internet conne
 ## How to run it
 
 1. Open `index.html` by double-clicking it.
-2. Enter a full name and a whole-number age from 1 to 120.
+2. Enter a full name and a whole-number age from 18 to 120.
 3. Select **Start Quiz** to begin.
 4. Choose or skip the optional leadership-colour bonus.
 5. Select **View Your Sector Matches**, then reveal each dark card individually to see the top two sector matches.
